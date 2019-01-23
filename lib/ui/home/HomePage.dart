@@ -7,7 +7,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: <Widget>[GradientAppBar('treva'), HomePageBody()],
+        children: <Widget>[
+          GradientAppBar('treva'),
+          HomePageBody(),
+          HomePageBody(),
+          HomePageBody(),
+          HomePageBody()
+        ],
       ),
     );
   }
