@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planets_flutter/model/Planet.dart';
+import 'package:planets_flutter/ui/detail/detail_page.dart';
 
 class PlanetRow extends StatelessWidget {
   final Planet planet;
@@ -97,11 +98,14 @@ class PlanetRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-      child: Stack(
-        children: <Widget>[renderPlanetCard(), renderPlanetThumbnail()],
-      ),
-    );
+    return GestureDetector(
+        onTap: () => Navigator.of(context).push(
+            PageRouteBuilder(pageBuilder: (_, __, ___) => DetailPage(planet))),
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+          child: Stack(
+            children: <Widget>[renderPlanetCard(), renderPlanetThumbnail()],
+          ),
+        ));
   }
 }
