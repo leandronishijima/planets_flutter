@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planets_flutter/model/Planet.dart';
+import 'package:planets_flutter/ui/home/planet_summary.dart';
+import 'package:planets_flutter/ui/separator.dart';
 
 class DetailPage extends StatelessWidget {
   final Planet planet;
@@ -27,6 +29,53 @@ class DetailPage extends StatelessWidget {
                 end: FractionalOffset(0.0, 0.1))));
   }
 
+  TextStyle regularTextStyle() {
+    return TextStyle(
+        fontFamily: 'Poppins',
+        color: Color(0xffb6b2df),
+        fontWeight: FontWeight.w400,
+        fontSize: 12.0);
+  }
+
+  TextStyle headerTextStyle() {
+    return TextStyle(
+        fontFamily: 'Poppins',
+        color: Colors.white,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w600);
+  }
+
+  _renderContent() {
+    final _overviewTitle = "Overview".toUpperCase();
+
+    return ListView(
+      padding: EdgeInsets.fromLTRB(0.0, 72.0, 0.0, 32.0),
+      children: <Widget>[
+        PlanetSummary(
+          planet,
+          horizontal: false,
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 32.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                _overviewTitle,
+                style: headerTextStyle(),
+              ),
+              Separator(),
+              Text(
+                planet.description,
+                style: regularTextStyle(),
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,13 +86,7 @@ class DetailPage extends StatelessWidget {
               children: <Widget>[
                 _renderBackground(),
                 _renderGradient(),
-                Hero(
-                    tag: "planet-hero-${planet.id}",
-                    child: Image.asset(
-                      planet.image,
-                      width: 96,
-                      height: 96.0,
-                    ))
+                _renderContent(),
               ],
             )));
   }
