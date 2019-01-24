@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planets_flutter/model/Planet.dart';
 import 'package:planets_flutter/ui/detail/detail_page.dart';
+import 'package:planets_flutter/ui/separator.dart';
 
 class PlanetSummary extends StatelessWidget {
   final Planet planet;
@@ -28,7 +29,7 @@ class PlanetSummary extends StatelessWidget {
       margin:
           horizontal ? EdgeInsets.only(left: 46.0) : EdgeInsets.only(top: 72.0),
       decoration: BoxDecoration(
-          color: Color(0xFF333366),
+          color: Color(0xFF424670),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: <BoxShadow>[
@@ -46,7 +47,7 @@ class PlanetSummary extends StatelessWidget {
       child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
         Image.asset(image, height: 12.0),
         Container(width: 8.0),
-        Text(planet.gravity, style: regularTextStyle()),
+        Text(value, style: regularTextStyle()),
       ]),
     );
   }
@@ -67,17 +68,13 @@ class PlanetSummary extends StatelessWidget {
             planet.name,
             style: headerTextStyle(),
           ),
-          Container(height: 10.0),
+          Container(height: 2.0),
           Text(
             planet.location,
             style: regularTextStyle(),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 8.0),
-            height: 2.0,
-            width: 18.0,
-            color: Color(0xff00c6ff),
-          ),
+          Separator(),
+          Container(height: 6.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

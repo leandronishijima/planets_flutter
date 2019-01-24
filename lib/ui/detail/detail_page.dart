@@ -23,7 +23,7 @@ class DetailPage extends StatelessWidget {
         height: 610.0,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: <Color>[Color(0x00736AB7), Color(0xFF736AB7)],
+                colors: <Color>[Color(0x00736AB7), Color(0xFF3E3C5F)],
                 stops: [0.0, 0.9],
                 begin: FractionalOffset(0.0, 0.0),
                 end: FractionalOffset(0.0, 0.1))));
