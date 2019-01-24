@@ -6,18 +6,37 @@ class DetailPage extends StatelessWidget {
 
   DetailPage(this.planet);
 
+  _renderBackground() {
+    return Container(
+        child: Image.network(
+      planet.picture,
+      fit: BoxFit.cover,
+      height: 300.0,
+    ));
+  }
+
+  _renderGradient() {
+    return Container(
+        margin: EdgeInsets.only(top: 190.0),
+        height: 610.0,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: <Color>[Color(0x00736AB7), Color(0xFF736AB7)],
+                stops: [0.0, 0.9],
+                begin: FractionalOffset(0.0, 0.0),
+                end: FractionalOffset(0.0, 0.1))));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Planet Detail"),
-        ),
         body: Container(
             constraints: BoxConstraints.expand(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            color: Color(0xFF736AB7),
+            child: Stack(
               children: <Widget>[
-                Text(planet.name),
+                _renderBackground(),
+                _renderGradient(),
                 Hero(
                     tag: "planet-hero-${planet.id}",
                     child: Image.asset(
