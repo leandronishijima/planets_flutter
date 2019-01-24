@@ -9,10 +9,13 @@ class PlanetRow extends StatelessWidget {
 
   Widget renderPlanetThumbnail() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 16),
-      alignment: FractionalOffset.centerLeft,
-      child: Image(image: AssetImage(planet.image), height: 92.0, width: 92.0),
-    );
+        margin: EdgeInsets.symmetric(vertical: 16),
+        alignment: FractionalOffset.centerLeft,
+        child: Hero(
+          tag: "planet-hero-${planet.id}",
+          child:
+              Image(image: AssetImage(planet.image), height: 92.0, width: 92.0),
+        ));
   }
 
   Widget renderPlanetCard() {
