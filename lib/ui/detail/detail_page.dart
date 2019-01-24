@@ -76,6 +76,15 @@ class DetailPage extends StatelessWidget {
     );
   }
 
+  _renderToolbar(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+      child: BackButton(
+        color: Colors.white,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,6 +96,7 @@ class DetailPage extends StatelessWidget {
                 _renderBackground(),
                 _renderGradient(),
                 _renderContent(),
+                _renderToolbar(context),
               ],
             )));
   }
