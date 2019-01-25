@@ -27,6 +27,7 @@ class GradientAppBar extends StatelessWidget {
               Icon(
                 Icons.menu,
                 color: Colors.white,
+                size: 30.0,
               ),
               Text(
                 title,
@@ -39,6 +40,7 @@ class GradientAppBar extends StatelessWidget {
               Icon(
                 Icons.search,
                 color: Colors.white,
+                size: 30.0,
               )
             ]));
   }
