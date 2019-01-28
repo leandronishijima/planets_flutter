@@ -21,27 +21,16 @@ class GradientAppBar extends StatelessWidget {
               stops: [0.0, 1.0],
               tileMode: TileMode.clamp),
         ),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Icon(
-                Icons.menu,
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
                 color: Colors.white,
-                size: 30.0,
-              ),
-              Text(
-                title,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 36.0),
-              ),
-              Icon(
-                Icons.search,
-                color: Colors.white,
-                size: 30.0,
-              )
-            ]));
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                fontSize: 36.0),
+          ),
+        ]));
   }
 }

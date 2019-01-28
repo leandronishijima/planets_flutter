@@ -64,10 +64,12 @@ class PlanetSummary extends StatelessWidget {
           Container(
             height: 4.0,
           ),
-          Text(
-            planet.name,
-            style: headerTextStyle(),
-          ),
+          Hero(
+              tag: planet.name,
+              child: Text(
+                planet.name,
+                style: headerTextStyle(),
+              )),
           Container(height: 2.0),
           Text(
             planet.location,
